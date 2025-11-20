@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
+import Counter from './Counter';
 
-// ✅ Importlar
 import revueltoF from '../assets/revuelto-front.png';
 import revueltoL from '../assets/revuelto-logo2.svg';
 import revueltoS from '../assets/revuelto-side.webp';
@@ -15,18 +15,453 @@ import temerarioV from '../assets/revuelto-vd2.mp4';
 import huracanF from '../assets/huracan-front.png';
 import huracanL from '../assets/huracan-logo.svg';
 import huracanS from '../assets/huracan-side.webp';
-import huracanV from '../assets/revuelto-vd2.mp4';
+import huracanV from '../assets/huracan-vd.mp4';
 
 import urusF from '../assets/urus-front.webp';
 import urusL from '../assets/urus-logo.svg';
 import urusS from '../assets/urus-side.webp';
-import urusV from '../assets/revuelto-vd2.mp4';
+import urusV from '../assets/urus-vd.mp4';
 
 
 export default function HeroPage() {
   const cars = [
     {
       name: "Revuelto",
+      hero: {
+        video: revueltoV,
+        title: "Tamed By No One",
+        subtitle: "Revuelto",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "747", unit: "kW" },
+          { title: "Top Speed", value: ">350", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.5", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/revuelto/configurator",
+        },
+        image: revueltoF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: revueltoL,
+        tagline: "FROM NOW ON",
+        image: revueltoS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+    },
+    {
+      name: "Temerario",
+      hero: {
+        video: temerarioV,
+        title: "From the Alps to the Sea",
+        subtitle: "Temerario",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "677", unit: "kW" },
+          { title: "Top Speed", value: "343", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.7", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/temerario/configurator",
+        },
+        image: temerarioF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: temerarioL,
+        tagline: "YOU CAN'T HIDE WHO YOU ARE",
+        image: temerarioS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+    },
+    {
+      name: "Urus",
+      hero: {
+        video: urusV,
+        title: "Born to Thrill",
+        subtitle: "Urus",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "490", unit: "kW" },
+          { title: "Top Speed", value: "305", unit: "km/h" },
+          { title: "0–100 km/h", value: "3.3", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/urus/configurator",
+        },
+        image: urusF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: urusL,
+        tagline: "DARE TO LIVE MORE",
+        image: urusS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+    },
+    {
+      name: "Huracán",
+      hero: {
+        video: huracanV,
+        title: "Pure Emotion",
+        subtitle: "Huracán",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "470", unit: "kW" },
+          { title: "Top Speed", value: "325", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.9", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/huracan/configurator",
+        },
+        image: huracanF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: huracanL,
+        tagline: "BEYOND THE CONCRETE",
+        image: huracanS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },name: "Revuelto",
+      hero: {
+        video: revueltoV,
+        title: "Tamed By No One",
+        subtitle: "Revuelto",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "747", unit: "kW" },
+          { title: "Top Speed", value: ">350", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.5", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/revuelto/configurator",
+        },
+        image: revueltoF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: revueltoL,
+        tagline: "FROM NOW ON",
+        image: revueltoS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+    },
+    {
+      name: "Temerario",
+      hero: {
+        video: temerarioV,
+        title: "From the Alps to the Sea",
+        subtitle: "Temerario",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "677", unit: "kW" },
+          { title: "Top Speed", value: "343", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.7", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/temerario/configurator",
+        },
+        image: temerarioF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: temerarioL,
+        tagline: "YOU CAN'T HIDE WHO YOU ARE",
+        image: temerarioS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+    },
+    {
+      name: "Urus",
+      hero: {
+        video: urusV,
+        title: "Born to Thrill",
+        subtitle: "Urus",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "490", unit: "kW" },
+          { title: "Top Speed", value: "305", unit: "km/h" },
+          { title: "0–100 km/h", value: "3.3", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/urus/configurator",
+        },
+        image: urusF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: urusL,
+        tagline: "DARE TO LIVE MORE",
+        image: urusS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+    },
+    {
+      name: "Huracán",
+      hero: {
+        video: huracanV,
+        title: "Pure Emotion",
+        subtitle: "Huracán",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "470", unit: "kW" },
+          { title: "Top Speed", value: "325", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.9", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/huracan/configurator",
+        },
+        image: huracanF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: huracanL,
+        tagline: "BEYOND THE CONCRETE",
+        image: huracanS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },name: "Revuelto",
+      hero: {
+        video: revueltoV,
+        title: "Tamed By No One",
+        subtitle: "Revuelto",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "747", unit: "kW" },
+          { title: "Top Speed", value: ">350", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.5", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/revuelto/configurator",
+        },
+        image: revueltoF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: revueltoL,
+        tagline: "FROM NOW ON",
+        image: revueltoS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/revuelto",
+        },
+      },
+    },
+    {
+      name: "Temerario",
+      hero: {
+        video: temerarioV,
+        title: "From the Alps to the Sea",
+        subtitle: "Temerario",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power (combined)", value: "677", unit: "kW" },
+          { title: "Top Speed", value: "343", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.7", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/temerario/configurator",
+        },
+        image: temerarioF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: temerarioL,
+        tagline: "YOU CAN'T HIDE WHO YOU ARE",
+        image: temerarioS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/temerario",
+        },
+      },
+    },
+    {
+      name: "Urus",
+      hero: {
+        video: urusV,
+        title: "Born to Thrill",
+        subtitle: "Urus",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "490", unit: "kW" },
+          { title: "Top Speed", value: "305", unit: "km/h" },
+          { title: "0–100 km/h", value: "3.3", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/urus/configurator",
+        },
+        image: urusF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: urusL,
+        tagline: "DARE TO LIVE MORE",
+        image: urusS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/urus",
+        },
+      },
+    },
+    {
+      name: "Huracán",
+      hero: {
+        video: huracanV,
+        title: "Pure Emotion",
+        subtitle: "Huracán",
+        button: {
+          text: "Discover More",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },
+      specifications: {
+        background: "black",
+        stats: [
+          { title: "Max Power", value: "470", unit: "kW" },
+          { title: "Top Speed", value: "325", unit: "km/h" },
+          { title: "0–100 km/h", value: "2.9", unit: "s" },
+        ],
+        button: {
+          text: "Start Configuration",
+          url: "https://www.lamborghini.com/en-en/models/huracan/configurator",
+        },
+        image: huracanF,
+      },
+      models: {
+        title: "MODELS",
+        subtitle: "DISCOVER ALL MODELS",
+        link: "https://www.lamborghini.com/en-en/models",
+        logo: huracanL,
+        tagline: "BEYOND THE CONCRETE",
+        image: huracanS,
+        button: {
+          text: "EXPLORE THE MODEL",
+          url: "https://www.lamborghini.com/en-en/models/huracan",
+        },
+      },name: "Revuelto",
       hero: {
         video: revueltoV,
         title: "Tamed By No One",
@@ -313,16 +748,24 @@ export default function HeroPage() {
 }
 
 function SpecItem({ title, value, unit }) {
+  const numericValue = parseFloat(value.replace(">", "")); 
+  const places = numericValue >= 100 ? [100, 10, 1] : numericValue >= 10 ? [10, 1] : [1];
+
   return (
     <div className="text-center md:text-left">
       <h2 className="text-2xl text-[#9c9c9c] font-light tracking-wider mb-2">{title}</h2>
-      <p
-        className="font-extrabold text-7xl md:text-8xl flex items-end gap-3 leading-none"
-        style={{ fontFamily: `'Oswald', 'Bebas Neue', 'Anton', sans-serif` }}
-      >
-        {value}
+      <div className="flex items-end gap-3">
+        <Counter
+          value={numericValue}
+            places={places}
+          fontSize={80}
+          padding={5}
+          gap={10}
+          textColor="white"
+          fontWeight={900}
+        />
         <span className="text-2xl font-light mb-2">{unit}</span>
-      </p>
+      </div>
     </div>
   );
 }
