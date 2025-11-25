@@ -1,11 +1,6 @@
 import { footer } from 'framer-motion/client'
 import logo from '../assets/logo2.svg'
-import vector from '../assets/vector.svg'
-import vector1 from '../assets/vector-1.svg'
-import vector2 from '../assets/vector-2.svg'
-import vector3 from '../assets/vector-3.svg'
-import vector4 from '../assets/vector-4.svg'
-import vector5 from '../assets/vector-5.svg'
+
 export default function Footer(){
     return(
         <footer className='w-full flex items-center justify-center bg-black p-5 pt-10 text-[#dadada]'>
@@ -22,12 +17,7 @@ export default function Footer(){
                 <div className=''>
                     <p className='text-2xl mb-3'>Follow us on:</p>
                     <div className='flex flex-wrap gap-2 w-35'>
-                        <img className='w-7 mb-1' src={vector} alt="" />
-                        <img className='w-7 mb-1' src={vector1} alt="" />
-                        <img className='w-7 mb-1' src={vector2} alt="" />
-                        <img className='w-7' src={vector3} alt="" />
-                        <img className='w-7' src={vector4} alt="" />
-                        <img className='w-7' src={vector5} alt="" />
+                        
                        
                     </div>
                 </div>
