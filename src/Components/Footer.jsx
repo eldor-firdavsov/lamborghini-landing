@@ -16,6 +16,7 @@ export default function Footer(){
                     <li className='hover:text-white'>CARS</li>
                     <li className='hover:text-white'>FINANCIALS</li>
                     <li className='hover:text-white'>CONTACT</li>
+                    <li className='hover:text-white'>ABOUT</li>
                 </ul>
                 <img className='h-18' src={logo} alt="" />
                 <div className=''>
